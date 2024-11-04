@@ -6,6 +6,7 @@ from django.shortcuts import render
 from django.views.generic import DetailView
 from django.shortcuts import render
 from .models import Book
+from .models import Library
 
 def list_books(request):
     books = Book.objects.all()
@@ -14,7 +15,7 @@ def list_books(request):
 # relationship_app/views.py
 
 
-from .models import Library
+
 
 class LibraryDetailView(DetailView):
     model = Library
