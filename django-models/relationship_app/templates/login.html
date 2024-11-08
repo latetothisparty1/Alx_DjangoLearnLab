@@ -1,4 +1,4 @@
-<!-- relationship_app/templates/relationship_app/login.html -->
+<!-- templates/relationship_app/login.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +13,9 @@
         {{ form.as_p }}
         <button type="submit">Login</button>
     </form>
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
     <a href="{% url 'register' %}">Register</a>
 </body>
 </html>
