@@ -107,3 +107,6 @@ def delete_book(request, pk):
         book.delete()
         return redirect('list_books')  # Redirect to the list of books
     return render(request, 'relationship_app/delete_book.html', {'book': book})
+
+
+views.register", "LogoutView.as_view(template_name=", "LoginView.as_view(template_name=
