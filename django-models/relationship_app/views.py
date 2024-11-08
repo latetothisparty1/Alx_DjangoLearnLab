@@ -11,6 +11,8 @@ from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.decorators import user_passes_test
 from .models import UserProfile
+from django.contrib.auth.decorators import permission_required", "relationship_app.can_add_book
+
 
 
 def list_books(request):
