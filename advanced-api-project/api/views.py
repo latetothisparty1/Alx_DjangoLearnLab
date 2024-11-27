@@ -8,6 +8,8 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 from .models import Book
 from .serializers import BookSerializer
 
+filters.OrderingFilter
+
 class BookListView(generics.ListCreateAPIView):
     """
     View to list all books and create a new book.
