@@ -11,6 +11,10 @@ from .serializers import BookSerializer
 filters.OrderingFilter
 filters.SearchFilter
 
+CreateView
+UpdateView
+DeleteView
+
 class BookListView(generics.ListCreateAPIView):
     """
     View to list all books and create a new book.
