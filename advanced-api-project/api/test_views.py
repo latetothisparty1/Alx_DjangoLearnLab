@@ -61,3 +61,5 @@ class BookAPITestCase(APITestCase):
         self.assertEqual(len(response.data), 2)
         self.assertEqual(response.data[0]['title'], book1.title)
         self.assertEqual(response.data[1]['title'], book2.title)
+
+self.client.login
