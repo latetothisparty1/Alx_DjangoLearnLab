@@ -80,8 +80,28 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    },
+    'test': {
+        'NAME': 'test_database',
+        'USER': 'test_user',
+        'PASSWORD': 'test_password',
+        'HOST': 'localhost',
+        'PORT': '5432',
 }
+
+DATABASE_ROUTERS = ['path.to.TestDatabaseRouter']
+
+class TestDatabaseRouter:
+    def db_for_read(self, model, **hints):
+        if settings.TESTING:
+            return 'test'
+        return 'default'
+
+    def db_for_write(self, model, **hints):
+        if settings.TESTING:
+            return 'test'
+        return 'default'
+
 
 
 # Password validation
