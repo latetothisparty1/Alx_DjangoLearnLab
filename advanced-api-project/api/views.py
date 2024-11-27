@@ -14,6 +14,7 @@ filters.SearchFilter
 CreateView
 UpdateView
 DeleteView
+DetailView
 
 class BookListView(generics.ListCreateAPIView):
     """
