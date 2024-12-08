@@ -130,3 +130,30 @@ def delete_comment(request, comment_id):
     return redirect('post_detail', pk=comment.post.id)
 
 ["CommentCreateView", "CommentUpdateView", "CommentDeleteView"]
+
+# blog/views.py
+from django.db.models import Q
+from django.shortcuts import render
+from .models import Post
+
+def search_posts(request):
+    query = request.GET.get('q')
+    if query:
+        posts = Post.objects.filter(
+            Q(title__icontains=query) | 
+            Q(content__icontains=query) | 
+            Q(tags__name__icontains=query)
+        ).distinct()
+    else:
+        posts = Post.objects.none()
+    return render(request, 'blog/search_results.html', {'posts': posts, 'query': query})
+
+
+    # blog/views.py
+from django.shortcuts import render, get_object_or_404
+from .models import Post, Tag
+
+def tagged_posts(request, tag_name):
+    tag = get_object_or_404(Tag, name=tag_name)
+    posts = tag.posts.all()  # Get all posts associated with this tag
+    return render(request, 'blog/tagged_posts.html', {'tag': tag, 'posts': posts})

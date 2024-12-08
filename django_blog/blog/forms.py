@@ -41,4 +41,17 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ['content']
 
-        
+# blog/forms.py
+from django import forms
+from .models import Post, Comment, Tag
+
+class PostForm(forms.ModelForm):
+    tags = forms.ModelMultipleChoiceField(
+        queryset=Tag.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=False
+    )
+
+    class Meta:
+        model = Post
+        fields = ['title', 'content', 'tags']
