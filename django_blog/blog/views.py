@@ -129,4 +129,4 @@ def delete_comment(request, comment_id):
         return redirect('post_detail', pk=post_id)
     return redirect('post_detail', pk=comment.post.id)
 
-
+["CommentCreateView", "CommentUpdateView", "CommentDeleteView"]
