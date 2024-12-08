@@ -40,3 +40,4 @@ urlpatterns = [
     path('tags/<str:tag_name>/', tagged_posts, name='tagged_posts'),
 ]
 
+["tags/<slug:tag_slug>/", "PostByTagListView.as_view()"]
